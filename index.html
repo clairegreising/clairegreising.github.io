@@ -1,4 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                max-width: 700px;
+                margin: 0 auto;
+                padding: 0 1rem;
+                text-align: center;
+            }
+            h1 {
+                font-size: 40px;
+                margin-bottom: 0.5em;
+            }
+            img {
+                width: 300px;
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="open-up">
+                <a
+                    href="./claire.html"
+                    id="door-link"
+                    data-target="./claire.html"
+                    >LET ME IN</a
+                >
+            </h1>
+            <a
+                href="./claire.html"
+                id="door-img-link"
+                data-target="./claire.html"
+            >
+                <img src="./media/brown_door.jpeg" alt="Brown Door" />
+            </a>
+        </div>
 
-<div style="text-align:center"><h1 id="open-up", style="font-size:40px"><a href="./claire.html" style="font-size:80px">LET ME IN</a></h1>
-	<a href="./claire.html"><img src="./media/brown_door.jpeg" style="width:300px"></a>
-</ul></div>
+        <audio id="aim-sound" src="./media/open-aim.mp3" preload="auto"></audio>
+
+        <script>
+            const sound = document.getElementById("aim-sound");
+
+            function playSoundThenGo(e) {
+                e.preventDefault();
+                const targetUrl = e.currentTarget.dataset.target;
+                sound.currentTime = 0;
+                sound.play();
+
+                // Navigate after sound plays
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 1000); // adjust if sound is longer
+            }
+
+            document
+                .getElementById("door-link")
+                .addEventListener("click", playSoundThenGo);
+            document
+                .getElementById("door-img-link")
+                .addEventListener("click", playSoundThenGo);
+        </script>
+    </body>
+</html>
