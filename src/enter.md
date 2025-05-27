@@ -1,2 +1,3 @@
 # [Open Sesame](./claire.html)
-* ![](sesame_seeds.png)
+
+- ![](sesame_seeds.png)
